@@ -34,7 +34,7 @@ public class Enemy {
 		this.direction = newDirection;
 	}
 	
-	public void movement(Enemy enemy, int limitLeft, int limitRight) {
+	public void movement(Enemy enemy, int limitLeft, int limitRight, boolean shoot, int bulletX, int bulletY) {
 		if (enemy.direction == "right") {
 			enemy.setXY(enemy.getX() + 1, enemy.getY());
 		}
@@ -48,6 +48,9 @@ public class Enemy {
 		if (enemy.x < limitLeft) {
 			enemy.setDirection("right");
 			enemy.setXY(enemy.getX(), enemy.getY() + 1);
+		}
+		if(shoot == true && enemy.x - 1== bulletX && enemy.y == bulletY - 1) {
+			enemy.symbol = 0;
 		}
 	}
 }

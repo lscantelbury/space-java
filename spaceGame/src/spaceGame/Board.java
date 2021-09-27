@@ -21,16 +21,16 @@ public class Board{
 	
 //	detecting collisions
 	public void collision() {
-		if (enemyOne.getX() == player.getPosition() && enemyOne.getY() == 6){
+		if (enemyOne.getX() + 1 == player.getPosition() && enemyOne.getY() == 6){
 			player.setCondition("dead");
 		}
-		if (enemyTwo.getX() == player.getPosition() && enemyTwo.getY() == 6) {
+		if (enemyTwo.getX() + 1 == player.getPosition() && enemyTwo.getY() == 6) {
 			player.setCondition("dead");
 		}
-		if (enemyThree.getX() == player.getPosition() && enemyThree.getY() == 6) {
+		if (enemyThree.getX() + 1 == player.getPosition() && enemyThree.getY() == 6) {
 			player.setCondition("dead");
 		}
-		if (enemyFour.getX() == player.getPosition() && enemyFour.getY() == 6) {
+		if (enemyFour.getX() + 1 == player.getPosition() && enemyFour.getY() == 6) {
 			player.setCondition("dead");
 		}
 	}	
@@ -46,11 +46,17 @@ public class Board{
 	}
 		
 		player.position();
-		bullet.setXY()
+		
+		if (player.getShoot() == true) {
+			bullet.setShooted(true);
+			bullet.setXY(player.getPosition(), bullet.getY());
+		}
+		if (bullet.getShooted() == true) {
+			bullet.setXY(bullet.getX(), bullet.getY());
+			board[bullet.getY()][bullet.getX() - 1] = bullet.getSymbol();
+		}
 		
 		board[6][player.getPosition() - 1] = 4;
-		
-		board[bullet.getY()][bullet.getX()] = 1;
 		
 		board[enemyOne.getY()][enemyOne.getX()] = enemyOne.getSymbol();
 		board[enemyTwo.getY()][enemyTwo.getX()] = enemyTwo.getSymbol();
@@ -65,18 +71,28 @@ public class Board{
 		}
 		System.out.println("-----");
 		
+		collision();
+		
 //		moving enemyOne
-		enemyOne.movement(enemyOne, 1, 3);
+		enemyOne.movement(enemyOne, 1, 3, bullet.getShooted(), bullet.getX(), bullet.getY());
 
 //		moving enemyTwo
-		enemyTwo.movement(enemyTwo, 2, 4);
+		enemyTwo.movement(enemyTwo, 2, 4, bullet.getShooted(), bullet.getX(), bullet.getY());
 
 //		moving enemyThree
-		enemyThree.movement(enemyThree, 1, 3);
+		enemyThree.movement(enemyThree, 1, 3, bullet.getShooted(), bullet.getX(), bullet.getY());
 		
 //		moving enemyFour
-		enemyFour.movement(enemyFour, 2, 4);
+		enemyFour.movement(enemyFour, 2, 4, bullet.getShooted(), bullet.getX(), bullet.getY());
 		
-		collision();
+
+		
+		if (bullet.getY() == 0) {
+			bullet.setShooted(false);
+			bullet.setXY(bullet.getX(), 5);
+		}
+		if(bullet.getShooted() == true) {
+			bullet.setXY(bullet.getX(), bullet.getY()-1);
+		}
 	}
 }

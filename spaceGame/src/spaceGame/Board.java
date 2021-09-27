@@ -3,14 +3,16 @@ package spaceGame;
 public class Board{
 
 	private Player player;
+	private Bullet bullet;
 	
-	static Enemy enemyOne = new Enemy(0,0,1, "right");
+	static Enemy enemyOne = new Enemy(0,0,3, "right");
 	static Enemy enemyTwo = new Enemy(1,0,3, "right");
 	static Enemy enemyThree = new Enemy(0,1,3, "right");
 	static Enemy enemyFour = new Enemy(1,1,3, "right");
 	
-	public Board(Player spaceShip) {
+	public Board(Player spaceShip, Bullet bullet) {
 		this.player = spaceShip;
+		this.bullet = bullet;
 	}
 	
 	public Player getPlayer() {
@@ -44,8 +46,11 @@ public class Board{
 	}
 		
 		player.position();
+		bullet.setXY()
 		
 		board[6][player.getPosition() - 1] = 4;
+		
+		board[bullet.getY()][bullet.getX()] = 1;
 		
 		board[enemyOne.getY()][enemyOne.getX()] = enemyOne.getSymbol();
 		board[enemyTwo.getY()][enemyTwo.getX()] = enemyTwo.getSymbol();

@@ -17,9 +17,12 @@ public class Bullet {
 	public int getY() {
 		return this.y;
 	}
+	public int getSpeed() {
+		return this.speed;
+	}
 	
 	public void setXY(int newX, int newY) {
 		this.x = newX;
-		this.symbol = newY;
+		this.y = newY;
 	}
 }

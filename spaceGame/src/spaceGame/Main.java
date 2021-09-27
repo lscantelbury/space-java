@@ -4,7 +4,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Player spaceShip = new Player(3, "alive");
-		Board board = new Board(spaceShip);
+		Bullet bullet = new Bullet(spaceShip.getPosition(), 5, 1, 1);
+		Board board = new Board(spaceShip, bullet);
 		
 		do {
 			board.printBoard();

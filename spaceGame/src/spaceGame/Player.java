@@ -3,14 +3,15 @@ import java.util.Scanner;
 
 public class Player {
 	
-	private int pos = 0, temp;
+	private int pos = 0, temp, lives;
 	private String condition = "alive";
 	private boolean shoot;
 	
-	public Player(int pos, String condition, boolean shoot) {
+	public Player(int pos, String condition, boolean shoot, int lives) {
 		this.pos = pos;
 		this.condition = condition;
 		this.shoot = shoot;
+		this.lives = lives;
 	}
 	public void position() {
 		
@@ -45,6 +46,12 @@ public class Player {
 	}
 	public void setShoot(boolean newShoot) {
 		this.shoot = newShoot;
+	}
+	public int getLives() {
+		return this.lives;
+	}
+	public void setLives(int newLives) {
+		this.lives = newLives;
 	}
 
 }

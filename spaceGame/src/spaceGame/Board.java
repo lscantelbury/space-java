@@ -21,16 +21,35 @@ public class Board{
 	
 //	detecting collisions
 	public void collision() {
-		if (enemyOne.getX() + 1 == player.getPosition() && enemyOne.getY() == 6){
-			player.setCondition("dead");
+		if (enemyOne.getY() == 5){
+			player.setLives(player.getLives() - 1);
+			enemyOne.setXY(0, 0);
+			enemyTwo.setXY(1, 0);
+			enemyThree.setXY(0, 1);
+			enemyFour.setXY(1, 1);
 		}
-		if (enemyTwo.getX() + 1 == player.getPosition() && enemyTwo.getY() == 6) {
-			player.setCondition("dead");
+		if (enemyTwo.getY() == 5) {
+			player.setLives(player.getLives() - 1);
+			enemyOne.setXY(0, 0);
+			enemyTwo.setXY(1, 0);
+			enemyThree.setXY(0, 1);
+			enemyFour.setXY(1, 1);
 		}
-		if (enemyThree.getX() + 1 == player.getPosition() && enemyThree.getY() == 6) {
-			player.setCondition("dead");
+		if (enemyThree.getY() == 5) {
+			player.setLives(player.getLives() - 1);
+			enemyOne.setXY(0, 0);
+			enemyTwo.setXY(1, 0);
+			enemyThree.setXY(0, 1);
+			enemyFour.setXY(1, 1);
 		}
-		if (enemyFour.getX() + 1 == player.getPosition() && enemyFour.getY() == 6) {
+		if ( enemyFour.getY() == 5) {
+			player.setLives(player.getLives() - 1);
+			enemyOne.setXY(0, 0);
+			enemyTwo.setXY(1, 0);
+			enemyThree.setXY(0, 1);
+			enemyFour.setXY(1, 1);
+		}
+		if (player.getLives() == 0) {
 			player.setCondition("dead");
 		}
 	}	
@@ -62,6 +81,9 @@ public class Board{
 		board[enemyTwo.getY()][enemyTwo.getX()] = enemyTwo.getSymbol();
 		board[enemyThree.getY()][enemyThree.getX()] = enemyThree.getSymbol();
 		board[enemyFour.getY()][enemyFour.getX()] = enemyFour.getSymbol();
+		
+		System.out.println("Lives: " + player.getLives());
+		System.out.println("-----");
 		
 		for(int[] row : board) {
 			for(int	 column : row) {

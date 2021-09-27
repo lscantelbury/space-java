@@ -49,7 +49,7 @@ public class Enemy {
 			enemy.setDirection("right");
 			enemy.setXY(enemy.getX(), enemy.getY() + 1);
 		}
-		if(shoot == true && enemy.x - 1== bulletX && enemy.y == bulletY - 1) {
+		if(shoot == true && enemy.x == bulletX -1 && enemy.y + 1== bulletY) {
 			enemy.symbol = 0;
 		}
 	}

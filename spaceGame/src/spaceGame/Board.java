@@ -22,7 +22,16 @@ public class Board{
 		if (enemyOne.getX() == player.getPosition() && enemyOne.getY() == 6){
 			player.setCondition("dead");
 		}
-	}
+		if (enemyTwo.getX() == player.getPosition() && enemyTwo.getY() == 6) {
+			player.setCondition("dead");
+		}
+		if (enemyThree.getX() == player.getPosition() && enemyThree.getY() == 6) {
+			player.setCondition("dead");
+		}
+		if (enemyFour.getX() == player.getPosition() && enemyFour.getY() == 6) {
+			player.setCondition("dead");
+		}
+	}	
 	
 	
 	public void printBoard() {
@@ -52,16 +61,16 @@ public class Board{
 		System.out.println("-----");
 		
 //		moving enemyOne
-		enemyOne.movement(enemyOne, 0, 3);
+		enemyOne.movement(enemyOne, 1, 3);
 
 //		moving enemyTwo
-		enemyTwo.movement(enemyTwo, 1, 4);
+		enemyTwo.movement(enemyTwo, 2, 4);
 
 //		moving enemyThree
-		enemyThree.movement(enemyThree, 0, 3);
+		enemyThree.movement(enemyThree, 1, 3);
 		
 //		moving enemyFour
-		enemyFour.movement(enemyFour, 1, 4);
+		enemyFour.movement(enemyFour, 2, 4);
 		
 		collision();
 	}

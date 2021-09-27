@@ -9,6 +9,8 @@ public class Main {
 		do {
 			board.printBoard();
 		}while(spaceShip.getCondition() == "alive");
+		System.out.println();
+		System.out.println("YOU'RE DEAD");
 	}
 
 }

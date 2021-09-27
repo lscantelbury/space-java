@@ -46,7 +46,6 @@ public class Enemy {
 			enemy.setXY(enemy.getX() - 1, enemy.getY());
 		}
 		if (enemy.x < limitLeft) {
-			enemy.x = 0;
 			enemy.setDirection("right");
 			enemy.setXY(enemy.getX(), enemy.getY() + 1);
 		}
